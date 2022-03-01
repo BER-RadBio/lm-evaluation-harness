@@ -7,8 +7,6 @@ from pathlib import Path
 import pickle
 from lm_eval.metrics import mean, perplexity, matthews_corrcoef
 
-split_point = 0
-
 class RadBio(Task):
     # insert path name here
     # DATASET_PATH = Path("/homes/mzvyagin/isInSystemQA.obj")
@@ -34,12 +32,13 @@ class RadBio(Task):
         # load in the training data from the pickle and return as iterable
         with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
             data = pickle.load(f)
-        split_point = len(data) * 0.8
+        split_point = int(len(data) * 0.8)
         return data[:split_point]
 
     def validation_docs(self):
         with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
             data = pickle.load(f)
+        split_point = int(len(data) * 0.8)
         return data[split_point:]
 
     def test_docs(self):
