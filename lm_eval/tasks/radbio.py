@@ -31,7 +31,7 @@ class RadBio(Task):
         # load in the training data from the pickle and return as iterable
         with open(DATASET_PATH, "rb") as f:
             data = pickle.load(f)
-        return return data
+        return data
 
     def validation_docs(self):
         return NotImplementedError
