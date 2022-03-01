@@ -5,7 +5,7 @@ RadBio AI project - evaluating GPT on our dataset
 from lm_eval.base import Task, rf
 from pathlib import Path
 import pickle
-from lm_eval.metrics import mean, perplexity, matthews_corrcoef
+from lm_eval.metrics import mean, perplexity, matthews_corrcoef, f1_score
 
 class RadBio(Task):
     # insert path name here
