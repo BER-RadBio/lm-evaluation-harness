@@ -17,7 +17,7 @@ class RadBio(Task):
         pass
 
     def has_training_docs(self):
-        return True
+        return False
 
     def has_validation_docs(self):
         return True
@@ -25,21 +25,20 @@ class RadBio(Task):
     def has_test_docs(self):
         return False
 
-    def training_docs(self):
-        # These should return a Python iterable (list or generator) of dicts that can be queried for individual doc
-        # examples. NOTE: If your task doesn't have a train/validation/test set, remember to raise a NotImplementedError
-        # for that specific split.
-        # load in the training data from the pickle and return as iterable
-        with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
-            data = pickle.load(f)
-        split_point = int(len(data) * 0.8)
-        return data[:split_point]
+    # def training_docs(self):
+    #     # These should return a Python iterable (list or generator) of dicts that can be queried for individual doc
+    #     # examples. NOTE: If your task doesn't have a train/validation/test set, remember to raise a NotImplementedError
+    #     # for that specific split.
+    #     # load in the training data from the pickle and return as iterable
+    #     with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
+    #         data = pickle.load(f)
+    #     split_point = int(len(data) * 0.8)
+    #     return data[:split_point]
 
     def validation_docs(self):
         with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
             data = pickle.load(f)
-        split_point = int(len(data) * 0.8)
-        return data[split_point:]
+        return data
 
     def test_docs(self):
         return NotImplementedError
