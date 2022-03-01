@@ -29,7 +29,7 @@ class RadBio(Task):
         # examples. NOTE: If your task doesn't have a train/validation/test set, remember to raise a NotImplementedError
         # for that specific split.
         # load in the training data from the pickle and return as iterable
-        with open("/homes/mzvyagin/isInSystemQA.obj", "rb") as f:
+        with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
             data = pickle.load(f)
         return data
 
