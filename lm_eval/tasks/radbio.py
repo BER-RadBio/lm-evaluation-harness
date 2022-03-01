@@ -5,7 +5,7 @@ RadBio AI project - evaluating GPT on our dataset
 from lm_eval.base import Task, rf
 from pathlib import Path
 import pickle
-from lm_eval.metrics import mean, perplexity
+from lm_eval.metrics import mean, perplexity, matthews_corrcoef
 
 class RadBio(Task):
     # insert path name here
@@ -47,25 +47,24 @@ class RadBio(Task):
         return " " + doc["answer"]
 
     def construct_requests(self, doc, ctx):
-        ll, is_greedy = rf.loglikelihood(ctx, self.doc_to_target(doc))
-        return ll, is_greedy
+        ll_true, _ = rf.loglikelihood(ctx, " yes")
+        ll_false, _ = rf.loglikelihood(ctx, " no")
+        return ll_true, ll_false
 
     def process_results(self, doc, results):
-        ll, is_greedy = results
-        print(ll, is_greedy)
+        ll_true, ll_false = results
+        pred = ll_true > ll_false
+        gold = doc["answer"]
         return {
-            'ppl': ll,
-            'acc': int(is_greedy)
-        }
-
-    def aggregation(self):
-        return {
-            'ppl': perplexity,
-            'acc': mean
+            "mcc": (gold, pred)
         }
 
     def higher_is_better(self):
         return {
-            'ppl': False,
-            'acc': True
+            "mcc": True
+        }
+
+    def aggregation(self):
+        return {
+            "mcc": matthews_corrcoef
         }
