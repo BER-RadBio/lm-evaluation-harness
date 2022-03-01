@@ -53,27 +53,30 @@ class RadBio(Task):
         return " " + doc["answer"]
 
     def construct_requests(self, doc, ctx):
-        ll_true, _ = rf.loglikelihood(ctx, " yes")
-        ll_false, _ = rf.loglikelihood(ctx, " no")
-        return ll_true, ll_false
+        ll_yes, _ = rf.loglikelihood(ctx, " yes")
+        ll_no, _ = rf.loglikelihood(ctx, " no")
+        return ll_yes, ll_no
 
     def process_results(self, doc, results):
-        ll_true, ll_false = results
-        pred = ll_true > ll_false
+        ll_yes, ll_no = results
         if doc["answer"].strip() == "yes":
             gold = 1
         else:
             gold = 0
+        pred = ll_yes > ll_no
         return {
-            "mcc": (gold, pred)
+            "acc": pred == gold,
+            "f1": (gold, pred),
         }
 
     def higher_is_better(self):
         return {
-            "mcc": True
+            "acc": True,
+            "f1": True
         }
 
     def aggregation(self):
         return {
-            "mcc": matthews_corrcoef
+            "acc": mean,
+            "f1": f1_score
         }
