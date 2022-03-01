@@ -43,7 +43,7 @@ class RadBio(Task):
         return doc["question"]
 
     def doc_to_target(self, doc):
-        return doc["answer"]
+        return " " + doc["answer"]
 
     def construct_requests(self, doc, ctx):
         ll, is_greedy = rf.loglikelihood(ctx, self.doc_to_target(doc))
