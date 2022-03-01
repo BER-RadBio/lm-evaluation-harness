@@ -50,6 +50,7 @@ from . import truthfulqa
 from . import blimp
 from . import asdiv
 from . import gsm8k
+from . import radbio
 
 ########################################
 # Translation tasks
@@ -82,6 +83,8 @@ all_translation_benchmarks = {
 
 
 TASK_REGISTRY = {
+    # radbio
+    "radbio": radbio.RadBio
     # GLUE
     "cola": glue.CoLA,
     "mnli": glue.MNLI,
