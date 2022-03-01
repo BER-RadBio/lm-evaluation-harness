@@ -60,7 +60,10 @@ class RadBio(Task):
     def process_results(self, doc, results):
         ll_true, ll_false = results
         pred = ll_true > ll_false
-        gold = doc["answer"]
+        if doc["answer"].strip() == "yes":
+            gold = 1
+        else:
+            gold = 0
         return {
             "mcc": (gold, pred)
         }
