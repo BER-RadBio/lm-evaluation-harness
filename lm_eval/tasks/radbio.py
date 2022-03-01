@@ -30,16 +30,14 @@ class RadBio(Task):
     #     # examples. NOTE: If your task doesn't have a train/validation/test set, remember to raise a NotImplementedError
     #     # for that specific split.
     #     # load in the training data from the pickle and return as iterable
-        with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
+        with open("/homes/mzvyagin/radbio/data/isInSystemQAlarge/train.pkl", "rb") as f:
             data = pickle.load(f)
-        split_point = int(len(data) * 0.5)
-        return data[:split_point]
+        return data
 
     def validation_docs(self):
-        with open("/homes/mzvyagin/radbio/isInSystemQA.obj", "rb") as f:
+        with open("/homes/mzvyagin/radbio/data/isInSystemQAlarge/test.pkl", "rb") as f:
             data = pickle.load(f)
-        split_point = int(len(data) * 0.5)
-        return data[split_point:]
+        return data
 
     def test_docs(self):
         return NotImplementedError
