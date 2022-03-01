@@ -10,6 +10,7 @@ from lm_eval.metrics import mean, perplexity
 class RadBio(Task):
     # insert path name here
     # DATASET_PATH = Path("/homes/mzvyagin/isInSystemQA.obj")
+    VERSION=1.0
 
     def download(self):
         # some kind of unpickling call here? I don't think we can download from the internet as it's not public
