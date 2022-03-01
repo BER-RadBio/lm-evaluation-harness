@@ -2,10 +2,10 @@
 RadBio AI project - evaluating GPT on our dataset
 """
 
-from lm_eval.base import Task
+from lm_eval.base import Task, rf
 from pathlib import Path
 import pickle
-
+from lm_eval.metrics import mean, perplexity
 
 class RadBio(Task):
     # insert path name here
@@ -44,3 +44,27 @@ class RadBio(Task):
 
     def doc_to_target(self, doc):
         return doc["answer"]
+
+    def construct_requests(self, doc, ctx):
+        ll, is_greedy = rf.loglikelihood(ctx, self.doc_to_target(doc))
+        return ll, is_greedy
+
+    def process_results(self, doc, results):
+        ll, is_greedy = results
+
+        return {
+            'ppl': ll,
+            'acc': int(is_greedy)
+        }
+
+    def aggregation(self):
+        return {
+            'ppl': perplexity,
+            'acc': mean
+        }
+
+    def higher_is_better(self):
+        return {
+            'ppl': False,
+            'acc': True
+        }
