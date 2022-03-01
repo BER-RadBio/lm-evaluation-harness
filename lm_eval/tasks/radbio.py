@@ -52,7 +52,7 @@ class RadBio(Task):
 
     def process_results(self, doc, results):
         ll, is_greedy = results
-
+        print(ll, is_greedy)
         return {
             'ppl': ll,
             'acc': int(is_greedy)
