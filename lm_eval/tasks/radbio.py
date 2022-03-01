@@ -9,7 +9,7 @@ from lm_eval.metrics import mean, perplexity
 
 class RadBio(Task):
     # insert path name here
-    DATASET_PATH = Path("/homes/mzvyagin/isInSystemQA.obj")
+    self.DATASET_PATH = Path("/homes/mzvyagin/isInSystemQA.obj")
 
     def download(self):
         # some kind of unpickling call here? I don't think we can download from the internet as it's not public
@@ -29,7 +29,7 @@ class RadBio(Task):
         # examples. NOTE: If your task doesn't have a train/validation/test set, remember to raise a NotImplementedError
         # for that specific split.
         # load in the training data from the pickle and return as iterable
-        with open(DATASET_PATH, "rb") as f:
+        with open(self.DATASET_PATH, "rb") as f:
             data = pickle.load(f)
         return data
 
