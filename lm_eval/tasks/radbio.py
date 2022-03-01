@@ -7,7 +7,7 @@ from pathlib import Path
 import pickle
 from lm_eval.metrics import mean, perplexity, matthews_corrcoef
 
-global split_point = 0
+split_point = 0
 
 class RadBio(Task):
     # insert path name here
