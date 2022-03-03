@@ -14,7 +14,6 @@ import os
 class RadBio(Task):
     """Base Class for yes/no questions"""
     DATASET_PATH = Path("./radbio_data")
-    VERSION = 1.0
 
     def download(self):
         if self.DATASET_PATH.exists():
@@ -75,6 +74,7 @@ class RadBio(Task):
 
 
 class isInSystemQA(RadBio):
+    VERSION = 1.0
 
     def training_docs(self):
         with open(self.DATASET_PATH / "radbio_question_sets/isInSystemQA/train.pkl", "rb") as f:
@@ -91,6 +91,7 @@ class isInSystemQA(RadBio):
 
 
 class goAHumanQA(RadBio):
+    VERSION = 1.0
 
     def training_docs(self):
         with open(self.DATASET_PATH / "radbio_question_sets/goAHumanQA/train.pkl", "rb") as f:
@@ -107,6 +108,7 @@ class goAHumanQA(RadBio):
 
 
 class goARadiationResponseQA(RadBio):
+    VERSION = 1.0
 
     def training_docs(self):
         with open(self.DATASET_PATH / "radbio_question_sets/goARadiationResponseQA/train.pkl", "rb") as f:
@@ -124,6 +126,7 @@ class goARadiationResponseQA(RadBio):
 
 class ppiHumanQA(RadBio):
     """Protein protein interaction dataset"""
+    VERSION = 1.0
 
     def training_docs(self):
         with open(self.DATASET_PATH / "radbio_question_sets/ppiHumanQA/train.pkl", "rb") as f:
@@ -140,6 +143,7 @@ class ppiHumanQA(RadBio):
 
 
 class humanPathwaysQA(RadBio):
+    VERSION = 1.0
 
     def training_docs(self):
         with open(self.DATASET_PATH / "radbio_question_sets/humanPathwaysQA/train.pkl", "rb") as f:
