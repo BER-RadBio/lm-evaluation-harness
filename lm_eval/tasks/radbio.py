@@ -8,6 +8,7 @@ import pickle
 from lm_eval.metrics import mean, perplexity, matthews_corrcoef, f1_score
 from best_download import download_file
 from zipfile import ZipFile
+import os
 
 
 class RadBio(Task):
