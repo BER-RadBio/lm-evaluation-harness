@@ -84,7 +84,12 @@ all_translation_benchmarks = {
 
 TASK_REGISTRY = {
     # radbio
-    "radbio": radbio.RadBio,
+    #"radbio": radbio.RadBio,
+    "isInSystemQA": radbio.isInSystemQA,
+    "goAHumanQA": radbio.goAHumanQA,
+    "goARadiationResponseQA": radbio.goARadiationResponseQA,
+    "ppiHumanQA": radbio.ppiHumanQA,
+    "humanPathwaysQA": radbio.humanPathwaysQA,
     # GLUE
     "cola": glue.CoLA,
     "mnli": glue.MNLI,
