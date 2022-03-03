@@ -20,7 +20,7 @@ class RadBio(Task):
             # don't re-download the dataset
             return
         Path.mkdir(self.DATASET_PATH, parents=True)
-        url = "https://docs.google.com/uc?export=download&id=1o2LMR5xdNlTcj2qpSlWEwLPseJxm4AXU"
+        url = "https://docs.google.com/uc?export=download&id=1o2LMR5xdNlTcj2qpSlWEwLPseJxm4AXU&confirm=t"
         checksum = "c78104ee5aaff4339ed9bd30526a01063eccb89765c9842c53de8f10b8accb32"
         zip_path = self.DATASET_PATH / "radbio_question_sets.zip"
         download_file(url, local_file=str(zip_path), expected_checksum=checksum)
