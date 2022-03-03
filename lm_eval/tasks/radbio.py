@@ -29,10 +29,10 @@ class RadBio(Task):
         os.remove(zip_path)
 
     def has_training_docs(self):
-        return False
+        return True
 
     def has_validation_docs(self):
-        return False
+        return True
 
     def has_test_docs(self):
         return False
