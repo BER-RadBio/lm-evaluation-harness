@@ -77,12 +77,12 @@ class RadBio(Task):
 class isInSystemQA(RadBio):
 
     def training_docs(self):
-        with open(self.DATASET_PATH / "isInSystemQA/train.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/isInSystemQA/train.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
     def validation_docs(self):
-        with open(self.DATASET_PATH / "isInSystemQA/test.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/isInSystemQA/test.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
@@ -93,12 +93,12 @@ class isInSystemQA(RadBio):
 class goAHumanQA(RadBio):
 
     def training_docs(self):
-        with open(self.DATASET_PATH / "goAHumanQA/train.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/goAHumanQA/train.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
     def validation_docs(self):
-        with open(self.DATASET_PATH / "goAHumanQA/test.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/goAHumanQA/test.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
@@ -109,12 +109,12 @@ class goAHumanQA(RadBio):
 class goARadiationResponseQA(RadBio):
 
     def training_docs(self):
-        with open(self.DATASET_PATH / "goARadiationResponseQA/train.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/goARadiationResponseQA/train.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
     def validation_docs(self):
-        with open(self.DATASET_PATH / "goARadiationResponseQA/test.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/goARadiationResponseQA/test.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
@@ -126,12 +126,12 @@ class ppiHumanQA(RadBio):
     """Protein protein interaction dataset"""
 
     def training_docs(self):
-        with open(self.DATASET_PATH / "ppiHumanQA/train.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/ppiHumanQA/train.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
     def validation_docs(self):
-        with open(self.DATASET_PATH / "ppiHumanQA/test.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/ppiHumanQA/test.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
@@ -142,12 +142,12 @@ class ppiHumanQA(RadBio):
 class humanPathwaysQA(RadBio):
 
     def training_docs(self):
-        with open(self.DATASET_PATH / "humanPathwaysQA/train.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/humanPathwaysQA/train.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
     def validation_docs(self):
-        with open(self.DATASET_PATH / "humanPathwaysQA/test.pkl", "rb") as f:
+        with open(self.DATASET_PATH / "radbio_question_sets/humanPathwaysQA/test.pkl", "rb") as f:
             data = pickle.load(f)
         return data
 
